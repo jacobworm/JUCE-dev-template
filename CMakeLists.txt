@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 4.0)
 
-# Set plugin name for project here: 
-set(PLUGIN_NAME "PluginName")           # ← Kun dette skal ændres!
+# Set plugin name and other variables for project here: 
+set(PLUGIN_NAME "PluginName")
+set(PLUGIN_VERSION "0.1.0")
+set(COMPANY_NAME "Umbrae")
+set(PLUGIN_MANUFACTURER_CODE "UMBR")
+set(PLUGIN_CODE "dem0")
+
 project(${PLUGIN_NAME})
 
 set(CMAKE_CXX_STANDARD 23)

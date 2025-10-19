@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 4.0)
 
-project (${PLUGIN_NAME} VERSION 0.1.0)
+project (${PLUGIN_NAME} VERSION ${PLUGIN_VERSION})
 
 juce_add_plugin(${PLUGIN_NAME}
-    COMPANY_NAME "Umbrae"
+    COMPANY_NAME "${COMPANY_NAME}"
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT FALSE
     NEEDS_MIDI_OUTPUT FALSE
-    PLUGIN_MANUFACTURER_CODE Umbrae
-    PLUGIN_CODE Dem0
+    PLUGIN_MANUFACTURER_CODE ${PLUGIN_MANUFACTURER_CODE}
+    PLUGIN_CODE ${PLUGIN_CODE}
     FORMATS VST3 AU AAX Standalone
     PRODUCT_NAME "${PLUGIN_NAME}"
     )
@@ -16,10 +16,10 @@ juce_add_plugin(${PLUGIN_NAME}
 # Add source files to the plugin target
 target_sources(${PROJECT_NAME}
     PRIVATE
-        source/PluginName/PluginProcessor.cpp
-        source/PluginName/PluginEditor.cpp
-        include/PluginName/PluginProcessor.h
-        include/PluginName/PluginEditor.h
+        source/plugin/PluginProcessor.cpp
+        source/plugin/PluginEditor.cpp
+        include/plugin/PluginProcessor.h
+        include/plugin/PluginEditor.h
 )
 
 # Set include directories
