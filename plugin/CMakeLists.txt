@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 4.0)
 
 project (${PLUGIN_NAME} VERSION ${PLUGIN_VERSION})
 
+# Function from JUCE CMake API to create a plugin
 juce_add_plugin(${PLUGIN_NAME}
     COMPANY_NAME "${COMPANY_NAME}"
     IS_SYNTH FALSE
@@ -28,17 +29,19 @@ target_include_directories(${PROJECT_NAME}
         include
 )
 
-    target_link_libraries(${PROJECT_NAME}
-        PRIVATE
-            juce::juce_audio_utils
-            juce::juce_audio_devices
-        PUBLIC
-            juce::juce_recommended_config_flags
-            juce::juce_recommended_lto_flags
-            juce::juce_recommended_warning_flags
-            )
+# Link JUCE modules to the plugin target
+# Set these for the modules you need::::::::::::::::::::::::::::::
+target_link_libraries(${PROJECT_NAME}
+    PRIVATE
+        juce::juce_audio_utils
+        juce::juce_audio_devices
+    PUBLIC
+        juce::juce_recommended_config_flags
+        juce::juce_recommended_lto_flags
+        juce::juce_recommended_warning_flags
+)
 
-    target_compile_definitions(${PROJECT_NAME}
+target_compile_definitions(${PROJECT_NAME}
         PRIVATE
             JUCE_PLUGINNAME_VERSION_MAJOR=0
             JUCE_PLUGINNAME_VERSION_MINOR=1
@@ -46,11 +49,11 @@ target_include_directories(${PROJECT_NAME}
             JUCE_VST3_CAN_REPLACE_VST2=0
             JUCE_USE_CURL=0
             JUCE_WEB_BROWSER=0
-    )
+)
 
-    if (MSVC)
-        target_compile_options(${PROJECT_NAME} 
+if (MSVC)
+    target_compile_options(${PROJECT_NAME} 
         PRIVATE 
         _SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING
-        )
-    endif()
+    )
+endif()

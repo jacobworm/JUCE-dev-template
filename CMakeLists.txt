@@ -5,7 +5,7 @@ set(PLUGIN_NAME "PluginName")
 set(PLUGIN_VERSION "0.1.0")
 set(COMPANY_NAME "Umbrae")
 set(PLUGIN_MANUFACTURER_CODE "UMBR")
-set(PLUGIN_CODE "dem0")
+set(PLUGIN_CODE "Dem0")
 
 project(${PLUGIN_NAME})
 
